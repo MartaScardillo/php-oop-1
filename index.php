@@ -26,8 +26,19 @@ class Production {
     //     $this->title = $_title;
     // }
 
-
+    public function toListItem() {
+        $listItem = 
+        '<li class="prod">' .
+            '<ul>' .
+                '<span>Production "' . $this->title . '"</span>' .
+                '<li>Language: ' . $this->language . '</li>' .
+                '<li>Rating: ' . $this->rating . '</li>' .
+            '</ul>' .
+        '</li>';
+        return $listItem;
+    }
 }
+
 
 $prod1 = new Production('The Good Doctor', 'English', '9/10');
 $prod2 = new Production('Clannad', 'Japanese', 'Pianto isterico/10');
@@ -45,6 +56,8 @@ $prod2 = new Production('Clannad', 'Japanese', 'Pianto isterico/10');
     <div class="container">
         <ul>
             <h1>Productions</h1>
+
+            <!-- stampa degli attributi usando i getters -->
             <li class="prod">
                 <ul>
                     <span>Production 1</span>
@@ -53,6 +66,8 @@ $prod2 = new Production('Clannad', 'Japanese', 'Pianto isterico/10');
                     <li><?php echo 'Rating: ' . $prod1->getRating() ?></li>
                 </ul>
             </li>
+
+            <!-- stampa degli attributi senza getters -->
             <li class="prod">
                 <ul>
                     <span>Production 2</span>
@@ -61,6 +76,12 @@ $prod2 = new Production('Clannad', 'Japanese', 'Pianto isterico/10');
                     <li><?php echo 'Rating: ' . $prod2->rating ?></li>
                 </ul>
             </li>
+
+            <!-- stampa dei list item con funzione -->
+            <?php 
+                echo $prod1->toListItem();
+                echo $prod2->toListItem();
+            ?>
         </ul>
     </div>
 </body>
