@@ -45,7 +45,20 @@ $productions = [
             <!-- stampa dei list item con funzione -->
             <?php 
                 foreach ($productions as $production) {
-                    echo $production->toListItem();
+                    echo
+                    '<li class="prod">' .
+                        '<ul>' .
+                            $production->toListItem() .
+                            '<li>';
+                                if (isset($production->duration)) {
+                                    echo 'Duration: ' . $production->duration;
+                                } elseif (isset($production->season)){
+                                    echo 'Seasons: ' . $production->season;
+                                }
+                            echo
+                            '</li>' .
+                        '</ul>' .
+                    '</li>';
                 }
             ?>
         </ul>

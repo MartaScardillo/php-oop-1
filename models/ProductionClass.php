@@ -28,13 +28,9 @@ class Production {
 
     public function toListItem() {
         $listItem = 
-        '<li class="prod">' .
-            '<ul>' .
                 '<span>Production "' . $this->title . '"</span>' .
                 '<li>Language: ' . $this->language . '</li>' .
-                '<li>Rating: ' . $this->rating . '</li>' .
-            '</ul>' .
-        '</li>';
+                '<li>Rating: ' . $this->rating . '</li>';
         return $listItem;
     }
 }
